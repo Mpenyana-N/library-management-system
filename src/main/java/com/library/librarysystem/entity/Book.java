@@ -1,6 +1,7 @@
 package com.library.librarysystem.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -53,4 +54,36 @@ public class Book {
     @JoinTable(name = "books_publishers", joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "publisher_id")} )
     private Set<Publisher> publishers = new HashSet<Publisher>();
+
+
+    //    The following methods makes sure that when you add or remove a book The other entities have the same effect
+    public void addPublisher(Publisher publisher) {
+        this.publishers.add(publisher);
+        publisher.getBooks().add(this);
+    }
+
+    public void removePublisher(Publisher publisher) {
+        this.publishers.remove(publisher);
+        publisher.getBooks().remove(publisher);
+    }
+
+    public void addAuthor(Author author) {
+        this.authors.add(author);
+        author.getBooks().add(this);
+    }
+
+    public void removeAuthor(Author author) {
+        this.authors.remove(author);
+        author.getBooks().remove(author);
+    }
+
+    public void addCategory(Category category) {
+        this.categories.add(category);
+        category.getBooks().add(this);
+    }
+
+    public void removeCategory(Category category) {
+        this.categories.remove(category);
+        category.getBooks().remove(category);
+    }
 }
