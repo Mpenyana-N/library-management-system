@@ -55,6 +55,11 @@ public class Book {
             inverseJoinColumns = {@JoinColumn(name = "publisher_id")} )
     private Set<Publisher> publishers = new HashSet<Publisher>();
 
+    public Book(String isbn, String name, String description) {
+        this.isbn = isbn;
+        this.name = name;
+        this.description = description;
+    }
 
     //    The following methods makes sure that when you add or remove a book The other entities have the same effect
     public void addPublisher(Publisher publisher) {

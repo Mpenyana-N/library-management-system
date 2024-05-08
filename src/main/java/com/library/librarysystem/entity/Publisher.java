@@ -25,4 +25,8 @@ public class Publisher {
     //    Defining the relationship between publisher and book entities
     @ManyToMany(mappedBy = "publishers", cascade = CascadeType.ALL)
     private Set<Book> books = new HashSet<Book>();
+
+    public Publisher(String name) {
+        this.name = name;
+    }
 }

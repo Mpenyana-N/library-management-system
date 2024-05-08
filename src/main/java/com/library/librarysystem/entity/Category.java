@@ -25,4 +25,8 @@ public class Category {
     //    Defining the relationship between category and book entities
     @ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL)
     private Set<Book> books = new HashSet<Book>();
+
+    public Category(String name) {
+        this.name = name;
+    }
 }
