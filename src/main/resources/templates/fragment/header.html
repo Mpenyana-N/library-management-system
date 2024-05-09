@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>header</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="@{css/style.css}" />
+</head>
+<body>
+<nav th:fragment="header">
+    <div id="page">
+	<div class="logo">Library Management System</div>
+	<ul id="navigation">
+		<li><a href="">Item 1</a></li>
+		<li><a href="">Item 2</a></li>
+		<li><a href="">Item 3</a></li>
+		<li><a href="">Item 4</a></li>
+		<li><a href="">Item 5</a></li>
+	</ul>
+</div>
+
+</nav>
+</body>
+</html>
